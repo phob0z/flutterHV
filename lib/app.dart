@@ -99,7 +99,7 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter PDF Demo'),
+        title: const Text('Flutter Deber 2'),
         bottom: TabBar(
           controller: _tabController,
           tabs: examples.map<Tab>((e) => Tab(text: e.name)).toList(),
