@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.3"
-  bidi:
-    dependency: transitive
-    description:
-      name: bidi
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -183,7 +176,7 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.12"
+    version: "3.3.0"
   intl:
     dependency: "direct main"
     description:
@@ -325,12 +318,12 @@ packages:
     source: hosted
     version: "2.0.7"
   pdf:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../pdf"
-      relative: true
-    source: path
-    version: "3.9.0"
+      name: pdf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.8.4"
   petitparser:
     dependency: transitive
     description:
@@ -369,10 +362,10 @@ packages:
   printing:
     dependency: "direct main"
     description:
-      path: "../printing"
-      relative: true
-    source: path
-    version: "5.10.0"
+      name: printing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.9.3"
   process:
     dependency: transitive
     description:

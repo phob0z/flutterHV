@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -10,8 +9,6 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
 
   final font1 = await PdfGoogleFonts.openSansRegular();
   final font2 = await PdfGoogleFonts.openSansBold();
-  final shape = await rootBundle.loadString('assets/document.svg');
-  final swirls = await rootBundle.loadString('assets/swirls2.svg');
 
   doc.addPage(
     pw.Page(
@@ -23,8 +20,6 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
           marginTop: 0,
         ),
         orientation: pw.PageOrientation.portrait,
-        buildBackground: (context) =>
-            pw.SvgImage(svg: shape, fit: pw.BoxFit.fill),
         theme: pw.ThemeData.withFont(
           base: font1,
           bold: font2,
@@ -102,9 +97,6 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
             pw.SizedBox(height: 20),
             pw.TableOfContent(),
             pw.Spacer(),
-            pw.Center(
-                child: pw.SvgImage(
-                    svg: swirls, width: 100, colorFilter: PdfColors.grey)),
             pw.Spacer(),
           ],
         );
