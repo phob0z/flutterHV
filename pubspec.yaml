@@ -28,7 +28,7 @@ flutter:
   assets:
     - assets/leonel.jpg
     - assets/raul.jpg
-
+    - assets/ariel.png
 
 flutter_icons:
   image_path: "app-logo.png"

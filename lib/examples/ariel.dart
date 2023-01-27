@@ -7,6 +7,9 @@ import 'package:printing/printing.dart';
 
 import 'leonel.dart';
 
+const PdfColor green = PdfColor.fromInt(0xff9ce5d0);
+const PdfColor lightGreen = PdfColor.fromInt(0xffcdf1e7);
+
 Future<Uint8List> generateAriel(PdfPageFormat format) async {
   final font1 = await PdfGoogleFonts.openSansRegular();
   final font2 = await PdfGoogleFonts.openSansBold();
