@@ -15,7 +15,7 @@ Future<Uint8List> generateAriel(PdfPageFormat format) async {
   final font2 = await PdfGoogleFonts.openSansBold();
 
   final doc =
-      pw.Document(title: 'Hoja de Vida de Leonel', author: 'David PHAM-VAN');
+      pw.Document(title: 'Hoja de Vida de Ariel', author: 'David PHAM-VAN');
 
   final profileImage = pw.MemoryImage(
     (await rootBundle.load('assets/ariel.png')).buffer.asUint8List(),
