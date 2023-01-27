@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light().copyWith(scrollbarTheme: scrollbarTheme),
       darkTheme: ThemeData.dark().copyWith(scrollbarTheme: scrollbarTheme),
-      title: 'Flutter PDF Demo',
+      title: 'Flutter Deber 2',
       home: const MyApp(),
     );
   }
