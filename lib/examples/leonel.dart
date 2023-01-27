@@ -1,21 +1,15 @@
-import 'dart:typed_data';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-const PdfColor green = PdfColor.fromInt(0xff9ce5d0);
-const PdfColor lightGreen = PdfColor.fromInt(0xffcdf1e7);
+PdfColor blue = PdfColor.fromHex('#1F4A8A');
+PdfColor lightBlue = PdfColor.fromHex('#519DC9');
 
 Future<Uint8List> generateLeonel(PdfPageFormat format) async {
-  // final doc = pw.Document(pageMode: PdfPageMode.outlines);
-
-  final font1 = await PdfGoogleFonts.openSansRegular();
-  final font2 = await PdfGoogleFonts.openSansBold();
-
   final doc =
-      pw.Document(title: 'Hoja de Vida de Leonel', author: 'David PHAM-VAN');
+      pw.Document(title: 'Hoja de Vida de Leonel', author: 'Leonel Molina');
 
   final profileImage = pw.MemoryImage(
     (await rootBundle.load('assets/leonel.jpg')).buffer.asUint8List(),
@@ -27,85 +21,60 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
     pw.MultiPage(
       pageTheme: pageTheme,
       build: (pw.Context context) => [
-        pw.Partitions(
-          children: [
-            pw.Partition(
-              child: pw.Column(
+        pw.Row(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            children: <pw.Widget>[
+              pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: <pw.Widget>[
-                  pw.Container(
-                    padding: const pw.EdgeInsets.only(left: 30, bottom: 20),
-                    child: pw.Column(
-                      crossAxisAlignment: pw.CrossAxisAlignment.start,
-                      children: <pw.Widget>[
-                        pw.Text('Parnella Charlesbois',
-                            textScaleFactor: 2,
-                            style: pw.Theme.of(context)
-                                .defaultTextStyle
-                                .copyWith(fontWeight: pw.FontWeight.bold)),
-                        pw.Padding(padding: const pw.EdgeInsets.only(top: 10)),
-                        pw.Text('Electrotyper',
-                            textScaleFactor: 1.2,
-                            style: pw.Theme.of(context)
-                                .defaultTextStyle
-                                .copyWith(
-                                    fontWeight: pw.FontWeight.bold,
-                                    color: green)),
-                        pw.Padding(padding: const pw.EdgeInsets.only(top: 20)),
-                        pw.Row(
-                          crossAxisAlignment: pw.CrossAxisAlignment.start,
-                          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                          children: <pw.Widget>[
-                            pw.Column(
-                              crossAxisAlignment: pw.CrossAxisAlignment.start,
-                              children: <pw.Widget>[
-                                pw.Text('568 Port Washington Road'),
-                                pw.Text('Nordegg, AB T0M 2H0'),
-                                pw.Text('Canada, ON'),
-                              ],
-                            ),
-                            pw.Column(
-                              crossAxisAlignment: pw.CrossAxisAlignment.start,
-                              children: <pw.Widget>[
-                                pw.Text('+1 403-721-6898'),
-                                pw.Text('p.charlesbois@yahoo.com'),
-                                pw.Text('wholeprices.ca'),
-                              ],
-                            ),
-                            pw.Padding(padding: pw.EdgeInsets.zero)
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  pw.Text('Work Experience'),
-                  pw.Text('Tour bus driver'),
-                  pw.Text('Logging equipment operator'),
-                  pw.Text('Foot doctor'),
-                  pw.Text('Unicorn trainer'),
-                  pw.Text('Chief chatter'),
-                  pw.SizedBox(height: 20),
-                  pw.Text('Education'),
-                  pw.Text('Bachelor Of Commerce'),
-                  pw.Text('Bachelor Interior Design'),
+                  pw.Text('Leonel A. Molina T.',
+                      textScaleFactor: 2,
+                      style: pw.Theme.of(context)
+                          .defaultTextStyle
+                          .copyWith(fontWeight: pw.FontWeight.bold)),
+                  pw.Padding(padding: const pw.EdgeInsets.only(top: 10)),
+                  pw.Text('Desarrollador',
+                      textScaleFactor: 1.2,
+                      style: pw.Theme.of(context).defaultTextStyle.copyWith(
+                          fontWeight: pw.FontWeight.bold, color: blue)),
+                  pw.Padding(padding: const pw.EdgeInsets.only(top: 20)),
+                  // pw.Text('Soy estudiante del último semestre de Desarrollo de Software en la Escuela Politécnica Nacional del Ecuador y ex estudiante de Ingeniería de Sistemas con mención computación de la Universidad de los Andes de Venezuela, apasionado por la computación, la programación, la lógica y el diseño, me considero una persona muy proactiva, siempre con la mejor actitud, paciente, responsable, con sentido del humor, y buena capacidad de trabajo en equipo, continuamente buscando ampliar mis conocimientos y mejorar en cada aspecto. He trabajado',
+                  // softWrap: true,
+                  // ),
+                  pw.Text('- INFORMACIÓN:',
+                      style: pw.Theme.of(context).defaultTextStyle.copyWith(
+                          fontWeight: pw.FontWeight.bold, color: blue)),
+                  pw.Text('Correo: leonel.alfonso@gmail.com'),
+                  pw.Text('Teléfono: +593 96 3680605'),
+                  pw.Text('Quito, Ecuador'),
+                  pw.Padding(padding: const pw.EdgeInsets.only(top: 20)),
+                  pw.Text('- HOBBIES:',
+                      style: pw.Theme.of(context).defaultTextStyle.copyWith(
+                          fontWeight: pw.FontWeight.bold, color: blue)),
+                  pw.Text('Computación'),
+                  pw.Text('Puzzles'),
+                  pw.Text('Barismo'),
+                  // 'Soy estudiante del último semestre de Desarrollo de Software en la Escuela Politécnica Nacional del Ecuador y ex estudiante de Ingeniería de Sistemas con mención computación de la Universidad de los Andes de Venezuela, apasionado por la computación, la programación, la lógica y el diseño, me considero una persona muy proactiva, siempre con la mejor actitud, paciente, responsable, con sentido del humor, y buena capacidad de trabajo en equipo, continuamente buscando ampliar mis conocimientos y mejorar en cada aspecto. He trabajado'
+                  // 'en diferentes proyectos académicos en diversos lenguajes de programación como C, C++,'
+                  // 'Python, Java, Javascript, con librerías como ReactJS, y en el ámbito no académico, he tenido'
+                  // 'la oportunidad aprender y desarrollarme como barista, en el área de ventas, administración'
+                  // 'de personal y atención al público'),
                 ],
               ),
-            ),
-            pw.Partition(
-              width: 120,
-              child: pw.Column(
+              pw.Column(
                 children: [
                   pw.Container(
                     height: pageTheme.pageFormat.availableHeight,
                     child: pw.Column(
                       crossAxisAlignment: pw.CrossAxisAlignment.center,
-                      mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: pw.MainAxisAlignment.start,
                       children: <pw.Widget>[
                         pw.ClipOval(
                           child: pw.Container(
                             width: 100,
                             height: 100,
-                            color: lightGreen,
+                            // color: lightBlue,
                             child: pw.Image(profileImage),
                           ),
                         ),
@@ -113,21 +82,12 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
                           pw.Text('Word'),
                           pw.Text('Excel'),
                         ]),
-                        pw.BarcodeWidget(
-                          data: 'Parnella Charlesbois',
-                          width: 60,
-                          height: 60,
-                          barcode: pw.Barcode.qrCode(),
-                          drawText: false,
-                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-            )
-          ],
-        ),
+            ]),
       ],
     ),
   );
@@ -135,8 +95,6 @@ Future<Uint8List> generateLeonel(PdfPageFormat format) async {
 }
 
 Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
-  // final bgShape = await rootBundle.loadString('assets/resume.svg');
-
   format = format.applyMargin(
       left: 2.0 * PdfPageFormat.cm,
       top: 4.0 * PdfPageFormat.cm,
@@ -147,28 +105,7 @@ Future<pw.PageTheme> _myPageTheme(PdfPageFormat format) async {
     theme: pw.ThemeData.withFont(
       base: await PdfGoogleFonts.openSansRegular(),
       bold: await PdfGoogleFonts.openSansBold(),
-      icons: await PdfGoogleFonts.materialIcons(),
     ),
-    // buildBackground: (pw.Context context) {
-    //   return pw.FullPage(
-    //     ignoreMargins: true,
-    //     child: pw.Stack(
-    //       children: [
-    //         pw.Positioned(
-    //           child: pw.SvgImage(svg: bgShape),
-    //           left: 0,
-    //           top: 0,
-    //         ),
-    //         pw.Positioned(
-    //           child: pw.Transform.rotate(
-    //               angle: 3.14, child: pw.SvgImage(svg: bgShape)),
-    //           right: 0,
-    //           bottom: 0,
-    //         ),
-    //       ],
-    //     ),
-    //   );
-    // },
   );
 }
 
