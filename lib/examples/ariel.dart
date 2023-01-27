@@ -1,5 +1,7 @@
 import 'dart:typed_data';
-
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -38,7 +40,7 @@ Future<Uint8List> generateAriel(PdfPageFormat format) async {
               pw.RichText(
                   text: pw.TextSpan(children: [
                 pw.TextSpan(
-                  text: DateTime.now().year.toString() + '\n',
+                  text: "Ariel Esteban Calderón Fernández" + '\n',
                   style: pw.TextStyle(
                     fontWeight: pw.FontWeight.bold,
                     color: PdfColors.grey600,
@@ -46,7 +48,7 @@ Future<Uint8List> generateAriel(PdfPageFormat format) async {
                   ),
                 ),
                 pw.TextSpan(
-                  text: 'Portable Document Format',
+                  text: 'Hoja de Vida',
                   style: pw.TextStyle(
                     fontWeight: pw.FontWeight.bold,
                     fontSize: 40,
@@ -55,10 +57,9 @@ Future<Uint8List> generateAriel(PdfPageFormat format) async {
               ])),
               pw.Spacer(),
               pw.Container(
-                alignment: pw.Alignment.topRight,
-                height: 150,
-                child: pw.PdfLogo(),
-              ),
+                  alignment: pw.Alignment.topRight,
+                  height: 150,
+                  child: pw.PdfLogo()),
               pw.Spacer(flex: 2),
               pw.Align(
                 alignment: pw.Alignment.topLeft,
