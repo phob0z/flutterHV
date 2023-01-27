@@ -29,6 +29,7 @@ flutter:
     - assets/leonel.jpg
     - assets/raul.jpg
 
+
 flutter_icons:
   image_path: "app-logo.png"
   remove_alpha_ios: true
